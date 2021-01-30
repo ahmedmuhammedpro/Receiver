@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.ahmed.receiver.database.User" />
+    </data>
+
+    <FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_grey"
+        tools:context=".ui.ReceiverActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/left_well"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="8dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/right_well"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="8dp" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@{user.name}"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textColor="@color/text_black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_well"
+                app:layout_constraintStart_toEndOf="@+id/left_well"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Ahmed Muhammed" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:autoLink="email"
+                android:text="@{user.email}"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/right_well"
+                app:layout_constraintStart_toEndOf="@+id/left_well"
+                app:layout_constraintTop_toBottomOf="@id/name"
+                tools:text="ahmedmuhammedpro@gamil.com" />
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:autoLink="phone"
+                android:text="@{user.phone}"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/right_well"
+                app:layout_constraintStart_toEndOf="@+id/left_well"
+                app:layout_constraintTop_toBottomOf="@id/email"
+                tools:text="1-770-736-8031" />
+
+            <Button
+                android:id="@+id/load_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/display_user"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/right_well"
+                app:layout_constraintStart_toStartOf="@id/left_well" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+</layout>
